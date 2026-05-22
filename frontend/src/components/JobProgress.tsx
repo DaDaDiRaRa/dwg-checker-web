@@ -45,11 +45,11 @@ export default function JobProgress({
   const isRunning = status === "running" || status === "pending";
 
   const statusColor: Record<JobStatus, string> = {
-    pending:   "text-yellow-400",
-    running:   "text-blue-400",
-    done:      "text-green-400",
-    cancelled: "text-gray-400",
-    error:     "text-red-400",
+    pending:   "text-kw-warn",
+    running:   "text-kw-accent",
+    done:      "text-kw-ok",
+    cancelled: "text-kw-muted",
+    error:     "text-kw-err",
   };
 
   const statusLabel: Record<JobStatus, string> = {
@@ -71,7 +71,7 @@ export default function JobProgress({
           <button
             onClick={handleCancel}
             disabled={cancelling}
-            className="text-xs text-red-400 hover:text-red-300 disabled:opacity-50"
+            className="text-xs text-kw-err hover:text-kw-err disabled:opacity-50"
           >
             {cancelling ? "취소 중…" : "분석 취소"}
           </button>
@@ -80,20 +80,20 @@ export default function JobProgress({
 
       {/* 진행률 바 */}
       <div>
-        <div className="flex justify-between text-xs text-gray-400 mb-1">
+        <div className="flex justify-between text-xs text-kw-muted mb-1">
           <span>{currentFile || "준비 중…"}</span>
           <span>{current}/{total} ({pct}%)</span>
         </div>
-        <div className="h-2 rounded-full bg-gray-700 overflow-hidden">
+        <div className="h-2 rounded-full bg-kw-surface-alt border border-kw-border overflow-hidden">
           <div
-            className="h-full rounded-full bg-blue-500 transition-all duration-300"
+            className="h-full rounded-full bg-kw-accent transition-all duration-300"
             style={{ width: `${pct}%` }}
           />
         </div>
       </div>
 
       {/* SSE 실시간 로그 */}
-      <div className="log-panel h-56 overflow-y-auto rounded-md bg-gray-950 p-3 font-mono text-xs text-gray-300 space-y-0.5">
+      <div className="log-panel h-56 overflow-y-auto rounded-md bg-kw-surface-alt border border-kw-border p-3 font-kw-mono text-xs text-kw-body space-y-0.5">
         {logs.map((line, i) => {
           const isError = line.includes("[오류]");
           const isDone  = line.includes("[완료]");
@@ -102,9 +102,9 @@ export default function JobProgress({
             <div
               key={i}
               className={
-                isError ? "text-red-400" :
-                isDone  ? "text-green-400" :
-                isWarn  ? "text-yellow-400" : ""
+                isError ? "text-kw-err" :
+                isDone  ? "text-kw-ok" :
+                isWarn  ? "text-kw-warn" : ""
               }
             >
               {line}

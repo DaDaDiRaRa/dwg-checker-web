@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 로그 패널 스크롤바 스타일 */
+body {
+  font-family: var(--font-primary);
+}
+
+/* 로그 패널 스크롤바 */
 .log-panel::-webkit-scrollbar {
   width: 6px;
 }
 .log-panel::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--color-bg-surface-alt);
 }
 .log-panel::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: var(--color-border-strong);
   border-radius: 3px;
 }

@@ -11,7 +11,10 @@ export default function DownloadButton({ jobId }: Props) {
     <a
       href={url}
       download="도면검토리포트_최종.xlsx"
-      className="inline-flex items-center gap-2 rounded-md bg-green-600 hover:bg-green-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+      className="inline-flex items-center gap-2 rounded-md bg-kw-ok hover:bg-kw-ok px-5 py-2.5 text-sm font-semibold text-white transition-colors"
+      style={{ filter: "brightness(1)", }}
+      onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(0.88)")}
+      onMouseLeave={(e) => (e.currentTarget.style.filter = "brightness(1)")}
     >
       <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
