@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 로그 패널 스크롤바 스타일 */
+.log-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.log-panel::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+.log-panel::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}

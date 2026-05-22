@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # 소스 변경 즉시 반영 (개발용)
+      - ./backend:/app/backend
+      # 데이터 영속성 (ROI 설정, 업로드 파일, 결과 Excel)
+      - autodwg_configs:/app/backend/data/configs
+      - autodwg_uploads:/app/backend/data/uploads
+      - autodwg_results:/app/backend/data/results
+      - autodwg_logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - CONFIG_DIR=/app/backend/data/configs
+      - UPLOAD_DIR=/app/backend/data/uploads
+      - RESULT_DIR=/app/backend/data/results
+      - LOG_FILE=/app/logs/autodwg.log
+    command: >
+      uvicorn backend.main:app
+      --host 0.0.0.0
+      --port 8000
+      --reload
+    restart: unless-stopped
+
+  # 프론트엔드 개발 서버 (선택 — 로컬에서 npm run dev로 돌려도 됨)
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile.dev
+  #   ports:
+  #     - "5173:5173"
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   depends_on:
+  #     - backend
+
+volumes:
+  autodwg_configs:
+  autodwg_uploads:
+  autodwg_results:
+  autodwg_logs:
