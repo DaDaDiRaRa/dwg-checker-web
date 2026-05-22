@@ -72,7 +72,7 @@ export default function SettingsTab() {
           >
             <div className="flex items-center gap-2 mb-1">
               <span className="font-semibold text-sm text-kw-text">Vision AI</span>
-              <span className="rounded-full text-[10px] px-1.5 py-0.5 font-medium"
+              <span className="rounded-full text-[length:var(--font-size-2xs)] px-1.5 py-0.5 font-medium"
                 style={{ background: "var(--color-warning-bg)", color: "var(--color-warning)" }}>
                 준비 중
               </span>

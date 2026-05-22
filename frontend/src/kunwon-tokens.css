@@ -64,6 +64,7 @@
                   BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
+  --font-size-2xs:  10px;
   --font-size-xs:   11px;
   --font-size-sm:   12px;
   --font-size-base: 14px;
@@ -117,7 +118,9 @@
   --input-px:     12px;
   --input-border: 1px solid var(--color-border);
 
-  --badge-radius: 20px;
+  --badge-radius:     20px;
+  --scrollbar-width:  6px;
+  --scrollbar-radius: 3px;
   --badge-px:     8px;
   --badge-py:     3px;
 }

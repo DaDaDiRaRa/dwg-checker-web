@@ -8,12 +8,12 @@ body {
 
 /* 로그 패널 스크롤바 */
 .log-panel::-webkit-scrollbar {
-  width: 6px;
+  width: var(--scrollbar-width);
 }
 .log-panel::-webkit-scrollbar-track {
   background: var(--color-bg-surface-alt);
 }
 .log-panel::-webkit-scrollbar-thumb {
   background: var(--color-border-strong);
-  border-radius: 3px;
+  border-radius: var(--scrollbar-radius);
 }
