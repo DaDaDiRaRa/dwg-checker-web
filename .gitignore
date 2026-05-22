@@ -1,0 +1,29 @@
+# 비밀 파일 — 절대 커밋하지 말 것
+key.json
+env.yaml
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# 업로드/결과 데이터 (로컬 개발용)
+backend/data/uploads/
+backend/data/results/
+backend/data/configs/
+backend/data/*.log
+
+# 로그
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
